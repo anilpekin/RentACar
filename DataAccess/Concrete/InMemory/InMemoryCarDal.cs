@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,11 +16,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car {Id=1, BrandId=1, ColorId=1, CarName="Volkswagen", ModelYear=2019, DailyPrice=200, Description="Diesel"},
-                new Car {Id=2, BrandId=2, ColorId=2, CarName="Porsche", ModelYear=2021, DailyPrice=250, Description="Diesel" },
-                new Car {Id=3, BrandId=3, ColorId=3, CarName="Bmw", ModelYear=2018, DailyPrice=180, Description="Gasoline" },
-                new Car {Id=4, BrandId=4, ColorId=4, CarName="Audi", ModelYear=2017, DailyPrice=150, Description="Diesel" },
-                new Car {Id=5, BrandId=5, ColorId=5, CarName="Toyota", ModelYear=2015, DailyPrice=100, Description="Gas" }
+                new Car {Id=1, BrandId=1, ColorId=1, ModelYear="2019", DailyPrice=200, Description="Diesel"},
+                new Car {Id=2, BrandId=2, ColorId=2, ModelYear="2021", DailyPrice=250, Description="Diesel" },
+                new Car {Id=3, BrandId=3, ColorId=3, ModelYear="2018", DailyPrice=180, Description="Gasoline" },
+                new Car {Id=4, BrandId=4, ColorId=4, ModelYear="2017", DailyPrice=150, Description="Diesel" },
+                new Car {Id=5, BrandId=5, ColorId=5, ModelYear="2015", DailyPrice=100, Description="Gas" }
             };
         }
 
@@ -55,6 +56,14 @@ namespace DataAccess.Concrete.InMemory
             return _cars.Where(p => p.Id == id).ToList();
         }
 
-    
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
