@@ -6,14 +6,7 @@ using Entities.Concrete;
 
 CarManager carManager = new CarManager(new EfCarDal());
 
-foreach (var car in carManager.GetCarsByBrandId(1))
+foreach (var car in carManager.GetCarDetails())
 {
-    Console.WriteLine(car.DailyPrice);
+    Console.WriteLine(car.BrandName + " / " + car.CarName + " / " + car.ColorName + " / " + car.DailyPrice );
 }
-
-foreach (var car in carManager.GetCarsByColorId(3))
-{
-    Console.WriteLine(car.DailyPrice);
-}
-
-carManager.Add(new Car { BrandId = 2, ColorId = 2, CarName = "Polo", DailyPrice = 180, ModelYear = "2015", Description = "Diesel" });
