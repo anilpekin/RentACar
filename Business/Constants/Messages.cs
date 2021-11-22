@@ -9,6 +9,8 @@ namespace Business.Constants
     public static class Messages
     {
         public static string CarAdded = "Car Added";
+        public static string CarDeleted = "Car Deleted";
+        public static string CarUpdated = "Car Updated";
         public static string CarNameInvalid = "Invalid car name!";
         public static string CarsListed = "Cars listed";
         public static string MaintenanceTime = "Maintenance time!";
@@ -25,6 +27,15 @@ namespace Business.Constants
         public static string RentalUpdated = "Rental Updated";
         public static string RentalsListed = "Rentals Listed";
         public static string RentalFailed = "Rental Failed";
+        public static string ColorAdded = "Color Added";
+        public static string ColorDeleted = "Color Deleted";
+        public static string ColorUpdated = "Color Updated";
+        public static string ColorsListed = "Colors Listed";
+        public static string BrandAdded = "Brand Added";
+        public static string BrandDeleted = "Brand Deleted";
+        public static string BrandUpdated = "Brand Updated";
+        public static string BrandsListed = "Brands Listed";
+
 
     }
 }

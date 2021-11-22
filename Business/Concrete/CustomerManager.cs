@@ -13,44 +13,44 @@ namespace Business.Concrete
 {
     public class CustomerManager : ICustomerService
     {
-        ICustomerDal _customerdal;
+        ICustomerDal _customerDal;
 
-        public CustomerManager(ICustomerDal customerdal)
+        public CustomerManager(ICustomerDal customerDal)
         {
-            _customerdal = customerdal;
+            _customerDal = customerDal;
         }
 
         public IResult Add(Customer customer)
         {
-            _customerdal.Add(customer);
+            _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAdded);
         }
 
         public IResult Delete(Customer customer)
         {
-            _customerdal.Delete(customer);
+            _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public IResult Update(Customer customer)
         {
-            _customerdal.Update(customer);
+            _customerDal.Update(customer);
             return new SuccessResult(Messages.CustomerUpdated);
         }
 
         public IDataResult<List<Customer>> GetAll()
         {
-            return new SuccessDataResult<List<Customer>>(_customerdal.GetAll(),Messages.CustomersListed);
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),Messages.CustomersListed);
         }
 
         public IDataResult<Customer> GetCustomerById(int id)
         {
-            return new SuccessDataResult<Customer>(_customerdal.Get(p=>p.Id==id));
+            return new SuccessDataResult<Customer>(_customerDal.Get(p=>p.Id==id));
         }
 
         public IDataResult<List<Customer>> GetCustomersByUserId(int userId)
         {
-            return new SuccessDataResult<List<Customer>>(_customerdal.GetAll(p=>p.UserId==userId));
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(p=>p.UserId==userId));
         }
 
     }

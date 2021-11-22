@@ -13,39 +13,39 @@ namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        IUserDal _userdal;
+        IUserDal _userDal;
 
-        public UserManager(IUserDal Userdal)
+        public UserManager(IUserDal userDal)
         {
-            _userdal = Userdal;
+            _userDal = userDal;
         }
 
-        public IResult Add(User User)
+        public IResult Add(User user)
         {
-            _userdal.Add(User);
+            _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Delete(User user)
         {
-            _userdal.Delete(user);
+            _userDal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
         }
 
         public IResult Update(User user)
         {
-            _userdal.Update(user);
+            _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userdal.GetAll(), Messages.UsersListed);
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
         }
 
         public IDataResult<User> GetUserById(int id)
         {
-            return new SuccessDataResult<User>(_userdal.Get(p => p.Id == id));
+            return new SuccessDataResult<User>(_userDal.Get(p => p.Id == id));
         }
 
     }
