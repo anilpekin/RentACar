@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Entities.Abstract;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class Brand: IEntity
+    public class UserForLoginDto : IDto
     {
-        public int BrandId { get; set; }
-        public string BrandName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

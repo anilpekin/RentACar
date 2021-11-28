@@ -36,6 +36,13 @@ namespace Business.Constants
         public static string BrandDeleted = "Brand Deleted";
         public static string BrandUpdated = "Brand Updated";
         public static string BrandsListed = "Brands Listed";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UserRegistered = "Kayıt oldu";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Parola hatası";
+        public static string SuccessfulLogin = "Başarılı giriş";
+        public static string UserAlreadyExists = "Kullanıcı Mevcut";
+        public static string AccessTokenCreated = "Token oluşturuldu";
 
 
     }
