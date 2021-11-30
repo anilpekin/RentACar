@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Aspects.Autofac.Caching;
 using Core.Entities.Concrete;
 
 namespace Business.Concrete
@@ -29,7 +30,10 @@ namespace Business.Concrete
 
         public IResult Delete(User user)
         {
-            _userDal.Delete(user);
+            var result = _userDal.Get(x => x.Id == user.Id);
+
+
+            _userDal.Delete(result);
             return new SuccessResult(Messages.UserDeleted);
         }
 
@@ -39,6 +43,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserUpdated);
         }
 
+        [CacheAspect]
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
