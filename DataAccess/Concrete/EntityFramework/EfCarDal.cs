@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, CarsContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null)
         {
             using (CarsContext context = new CarsContext())
             {
@@ -25,14 +25,16 @@ namespace DataAccess.Concrete.EntityFramework
                              on c.ColorId equals r.ColorId
                              select new CarDetailDto { 
                                  Id = c.Id,
+                                 BrandId = b.BrandId,
+                                 ColorId = r.ColorId,
                                  BrandName = b.BrandName, 
                                  ColorName = r.ColorName, 
-                                 CarName = c.CarName, 
+                                 CarName = c.CarName,
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
                                  Description = c.Description
                              };
-                return result.ToList();
+                return filter==null ? result.ToList() : result.Where(filter).ToList() ;
             }
         }
     }

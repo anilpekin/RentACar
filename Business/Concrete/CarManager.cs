@@ -52,9 +52,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
         }
 
-        public IDataResult<Car> GetCarById(int id)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsById(int id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(p=>p.Id==id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p=>p.Id==id));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -67,11 +67,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.BrandId == id));
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorId == id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.ColorId == colorId));
         }
 
-      
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrand(int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.BrandId == brandId));
+        }
     }
 }
